@@ -21,15 +21,14 @@
                             <div class="flex-element flex-row tutorial-card">
                                 <h2 class="wrap-line">{{t.title}}</h2>
                                 <p class="wrap-line">{{t.description}}</p>
+                                <p>
+                                    <a class="btn btn-primary" href="{{t.file.url}}">Download</a>
+                                    {% if t.url %}
+                                    <a class="btn btn-primary" href="{{t.url}}" target="_blank">Tutorial Link</a>
+                                    {% endif %}
+                                </p>
                                 <div>
-                                        {% if t.is_image %}
-                                        <img src="{{t.file.url}}" class="tutorial-img" />
-                                        {% else %}
-                                        <video class="tutorial-img" controls>
-                                            <source src="{{t.file.url}}" type="video/mp4">
-                                            Your browser does not support the video tag.
-                                        </video>
-                                        {% endif %}
+                                    {{t.get_html}}
                                 </div>
                             </div>
                             {% empty %}

@@ -1,6 +1,6 @@
 .flex-element {
     display: flex;
-    flex: .4;
+    flex-wrap: wrap;
 }
 
 .tutorials-container {
