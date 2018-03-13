@@ -33,5 +33,12 @@
 }
 
 .root {
-    font-family: 'Nunito', serif;
+    font-family: 'Roboto Slab', serif;
+}
+.inline-ul{
+    display: inline-flex;
+}
+.inline-ul li a {
+    display: block;
+    margin: 5px
 }

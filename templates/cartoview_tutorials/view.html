@@ -7,7 +7,7 @@
     {% include "geonode/ext_header.html" %}
     {% include "geonode/app_header.html" %}
     {{ block.super }}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
     <link rel="stylesheet" type="text/css" href="{% static 'cartoview_tutorials/css/index.css' %}"/>
 
 
@@ -21,12 +21,12 @@
                             <div class="flex-element flex-row tutorial-card">
                                 <h2 class="wrap-line">{{t.title}}</h2>
                                 <p class="wrap-line">{{t.description}}</p>
-                                <p>
-                                    <a class="btn btn-primary" href="{{t.file.url}}">Download</a>
+                                <ul class="inline-ul">
+                                    <li><a href="{{t.file.url}}">Download</a></li>
                                     {% if t.url %}
-                                    <a class="btn btn-primary" href="{{t.url}}" target="_blank">Tutorial Link</a>
+                                    <li><a href="{{t.url}}" target="_blank">Tutorial Link</a></li>
                                     {% endif %}
-                                </p>
+                                </ul>
                                 <div>
                                     {{t.get_html}}
                                 </div>
