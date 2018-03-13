@@ -1,0 +1,45 @@
+{% extends "app_manager/app_install_base.html" %}
+{% load bootstrap_tags staticfiles %}
+{% load i18n %}
+
+{% block title %} {{ block.super }} - {% trans "Tutorials" %} {% endblock %}
+{% block head %}
+    {% include "geonode/ext_header.html" %}
+    {% include "geonode/app_header.html" %}
+    {{ block.super }}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+    <link rel="stylesheet" type="text/css" href="{% static 'cartoview_tutorials/css/index.css' %}"/>
+
+
+{% endblock %}
+{% block body %}
+    <div id="page-wrapper">
+        <div class="container-fluid root ">
+            <h1>Tutorials:</h1>
+                <div class="flex-element tutorials-container">
+                        {% for t in tutorials %}
+                            <div class="flex-element flex-row tutorial-card">
+                                <h2 class="wrap-line">{{t.title}}</h2>
+                                <p class="wrap-line">{{t.description}}</p>
+                                <div>
+                                        {% if t.is_image %}
+                                        <img src="{{t.file.url}}" class="tutorial-img" />
+                                        {% else %}
+                                        <video class="tutorial-img" controls>
+                                            <source src="{{t.file.url}}" type="video/mp4">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                        {% endif %}
+                                </div>
+                            </div>
+                            {% empty %}
+                            <h3>No Tutorials Available</h3>
+                        {% endfor %}
+                </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block extra_script %}
+
+{% endblock %}
