@@ -19,8 +19,8 @@
                 <div class="flex-element tutorials-container">
                         {% for t in tutorials %}
                             <div class="flex-element flex-row tutorial-card">
-                                <h2 class="wrap-line">{{t.title}}</h2>
-                                <p class="wrap-line">{{t.description}}</p>
+                                <h2 class="wrap-line" title="Title" data-toggle="popover" data-trigger="hover" data-content="{{t.title}}">{{t.title}}</h2>
+                                <p class="wrap-line" title="Description" data-toggle="popover" data-trigger="hover" data-content="{{t.description}}">{{t.description}}</p>
                                 <ul class="inline-ul">
                                     <li><a href="{{t.file.url}}">Download</a></li>
                                     {% if t.url %}
@@ -41,4 +41,9 @@
 {% endblock %}
 {% block extra_script %}
 
+<script>
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover({placement: "top",});   
+    });
+</script>
 {% endblock %}
