@@ -4,13 +4,9 @@
 
 {% block title %} {{ block.super }} - {% trans "Tutorials" %} {% endblock %}
 {% block head %}
-    {% include "geonode/ext_header.html" %}
-    {% include "geonode/app_header.html" %}
     {{ block.super }}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab">
     <link rel="stylesheet" type="text/css" href="{% static 'cartoview_tutorials/css/index.css' %}"/>
-
-
 {% endblock %}
 {% block body %}
     <div id="page-wrapper">
